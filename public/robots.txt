@@ -1,0 +1,9 @@
+# *
+User-agent: *
+Allow: /
+
+# Host
+Host: https://bio-ivory-mu.vercel.app
+
+# Sitemaps
+Sitemap: https://bio-ivory-mu.vercel.app/sitemap.xml

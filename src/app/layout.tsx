@@ -13,38 +13,46 @@ const spaceGrotesk = Space_Grotesk({
   subsets: ["latin"],
 });
 
-export const metadata: Metadata = {
-  title: "Arunkumar | Full-Stack Developer | Healthcare Tech | Singapore",
-  description: "Portfolio of Arunkumar, a Full-Stack Developer specializing in Healthcare Technology, Ambient AI, React, Angular, and Laravel. Open to tech roles and relocation to Singapore.",
-  keywords: ["Arunkumar", "Full-Stack Developer", "Singapore", "Singapore Tech Jobs", "Singapore Recruiter", "Healthcare Tech", "React", "Angular", "Laravel", "Ambient AI", "Software Engineer", "Relocation"],
-  authors: [{ name: "Arunkumar" }],
-  creator: "Arunkumar",
+export const metadata = {
+  metadataBase: new URL('https://bio-ivory-mu.vercel.app'),
+
+  title: {
+    default: 'Arunkumar | Full Stack Developer',
+    template: '%s | Arunkumar',
+  },
+
+  description:
+    'Full Stack Developer specializing in React, Angular, React Native, Laravel, and Healthcare Applications.',
+
+  keywords: [
+    'Full Stack Developer Singapore',
+    'React Developer Singapore',
+    'Angular Developer',
+    'Healthcare Software Developer',
+    'React Native Developer',
+    'Laravel Developer',
+  ],
+
   openGraph: {
-    type: "website",
-    locale: "en_US",
-    url: "https://arunkumar.dev",
-    title: "Arunkumar | Full-Stack Developer | Available for Singapore",
-    description: "Building Intelligent Healthcare & Enterprise Solutions. Specialist in React, Angular, and Laravel. Open to tech roles in Singapore.",
-    siteName: "Arunkumar Portfolio",
+    title: 'Arunkumar Portfolio',
+    description:
+      'International Full Stack Developer Portfolio',
+    url: 'https://bio-ivory-mu.vercel.app',
+    siteName: 'Arunkumar Portfolio',
+    images: [
+      {
+        url: '/og-image.png',
+        width: 1200,
+        height: 630,
+      },
+    ],
+    locale: 'en_US',
+    type: 'website',
   },
-  twitter: {
-    card: "summary_large_image",
-    title: "Arunkumar | Full-Stack Developer | Available for Singapore",
-    description: "Building Intelligent Healthcare & Enterprise Solutions. Specialist in React, Angular, and Laravel. Open to tech roles in Singapore.",
-    creator: "@arunkumar",
+  verification: {
+    google: '1c2603980d832603',
   },
-  robots: {
-    index: true,
-    follow: true,
-    googleBot: {
-      index: true,
-      follow: true,
-      'max-video-preview': -1,
-      'max-image-preview': 'large',
-      'max-snippet': -1,
-    },
-  },
-};
+}
 
 export default function RootLayout({
   children,
