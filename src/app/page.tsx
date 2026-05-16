@@ -9,8 +9,12 @@ import Experience from "@/components/Experience";
 import Contact from "@/components/Contact";
 import Footer from "@/components/Footer";
 import CustomCursor from "@/components/CustomCursor";
-import ThreeBackground from "@/components/ThreeBackground";
 import AIChatbot from "@/components/AIChatbot";
+import dynamic from "next/dynamic";
+
+const ThreeBackground = dynamic(() => import("@/components/ThreeBackground"), {
+  ssr: false, // Prevents server-side rendering and defers hydration
+});
 
 export default function Home() {
   return (

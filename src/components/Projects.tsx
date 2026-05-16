@@ -132,11 +132,11 @@ export default function Projects() {
                 </p>
 
                 <div className="flex items-center space-x-4">
-                  <a href={project.link} className="p-3 rounded-xl bg-[#00E5FF]/10 text-[#00E5FF] hover:bg-[#00E5FF] hover:text-white transition-all duration-300">
-                    <ExternalLink size={20} />
+                  <a href={project.link} aria-label={`View live demo of ${project.title}`} className="p-3 rounded-xl bg-[#00E5FF]/10 text-[#00E5FF] hover:bg-[#00E5FF] hover:text-white transition-all duration-300">
+                    <ExternalLink size={20} aria-hidden="true" />
                   </a>
-                  <a href={project.github} className="p-3 rounded-xl bg-white/5 text-white hover:bg-white/10 transition-all duration-300">
-                    <Globe size={20} />
+                  <a href={project.github} aria-label={`View source code of ${project.title} on GitHub`} className="p-3 rounded-xl bg-white/5 text-white hover:bg-white/10 transition-all duration-300">
+                    <Globe size={20} aria-hidden="true" />
                   </a>
                   <button className="flex-grow py-3 px-4 rounded-xl border border-white/10 hover:border-white/30 text-sm font-bold transition-all">
                     Details

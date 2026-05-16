@@ -92,9 +92,11 @@ export default function AIChatbot() {
         whileHover={{ scale: 1.1 }}
         whileTap={{ scale: 0.9 }}
         onClick={() => setIsOpen(!isOpen)}
+        aria-label={isOpen ? "Close AI Chatbot" : "Open AI Chatbot"}
+        aria-expanded={isOpen}
         className="w-16 h-16 rounded-full gradient-bg flex items-center justify-center text-white shadow-2xl relative group"
       >
-        {isOpen ? <X size={28} /> : <Bot size={28} />}
+        {isOpen ? <X size={28} aria-hidden="true" /> : <Bot size={28} aria-hidden="true" />}
         {!isOpen && (
           <span className="absolute -top-2 -right-2 w-5 h-5 bg-[#2563EB] rounded-full border-2 border-[#060816] flex items-center justify-center text-[10px] font-bold">1</span>
         )}

@@ -84,9 +84,10 @@ export default function Contact() {
                   <a
                     key={i}
                     href={social.href}
+                    aria-label={`Visit my profile on ${social.icon.name || 'Social Media'}`}
                     className="p-4 rounded-2xl glass-dark border border-white/5 text-slate-400 hover:text-[#00E5FF] hover:border-[#00E5FF]/30 transition-all duration-300"
                   >
-                    <social.icon size={20} />
+                    <social.icon size={20} aria-hidden="true" />
                   </a>
                 ))}
               </div>
