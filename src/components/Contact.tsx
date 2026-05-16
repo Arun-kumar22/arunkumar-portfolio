@@ -12,27 +12,27 @@ export default function Contact() {
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setIsSubmitting(true);
-    
+
     try {
       // Replace this URL with your Google Apps Script / SheetDB / Sheet.best URL
       const GOOGLE_SHEET_WEBHOOK = process.env.NEXT_PUBLIC_SHEET_URL || "https://script.google.com/macros/s/AKfycbzn2ha65hAy9Wbl-vMKitaC1qBkDD72J-vikyWMKAQl4YdZ_JU8ES0ZukQfVtzwmHXaDg/exec";
-      
+
       const formData = new FormData(e.currentTarget);
-      
+
       await fetch(GOOGLE_SHEET_WEBHOOK, {
         method: "POST",
         body: formData,
         mode: "no-cors" // Essential for free Google Apps Script web apps
       });
-      
+
       setSuccess(true);
       setFormState({ name: "", email: "", message: "" });
-      
+
       setTimeout(() => setSuccess(false), 5000);
     } catch (error) {
       console.error("Submission failed", error);
     }
-    
+
     setIsSubmitting(false);
   };
 
@@ -60,7 +60,7 @@ export default function Contact() {
                   </div>
                   <div>
                     <div className="text-xs uppercase tracking-widest text-slate-500 font-bold mb-1">Email Me</div>
-                    <div className="text-lg font-medium text-white">arunkumar@example.com</div>
+                    <div className="text-lg font-medium text-white">arunganapathi20@gmail.com</div>
                   </div>
                 </div>
 
@@ -105,7 +105,7 @@ export default function Contact() {
                     type="text"
                     name="name"
                     value={formState.name}
-                    onChange={(e) => setFormState({...formState, name: e.target.value})}
+                    onChange={(e) => setFormState({ ...formState, name: e.target.value })}
                     required
                     className="w-full bg-white/5 border border-white/10 rounded-2xl px-6 py-4 text-white focus:outline-none focus:border-[#00E5FF]/50 focus:ring-1 focus:ring-[#00E5FF]/50 transition-all"
                     placeholder="Enter your name"
@@ -118,7 +118,7 @@ export default function Contact() {
                     type="email"
                     name="email"
                     value={formState.email}
-                    onChange={(e) => setFormState({...formState, email: e.target.value})}
+                    onChange={(e) => setFormState({ ...formState, email: e.target.value })}
                     required
                     className="w-full bg-white/5 border border-white/10 rounded-2xl px-6 py-4 text-white focus:outline-none focus:border-[#00E5FF]/50 focus:ring-1 focus:ring-[#00E5FF]/50 transition-all"
                     placeholder="Enter your email"
@@ -131,7 +131,7 @@ export default function Contact() {
                     rows={4}
                     name="message"
                     value={formState.message}
-                    onChange={(e) => setFormState({...formState, message: e.target.value})}
+                    onChange={(e) => setFormState({ ...formState, message: e.target.value })}
                     required
                     className="w-full bg-white/5 border border-white/10 rounded-2xl px-6 py-4 text-white focus:outline-none focus:border-[#00E5FF]/50 focus:ring-1 focus:ring-[#00E5FF]/50 transition-all resize-none"
                     placeholder="How can I help you?"
@@ -146,7 +146,7 @@ export default function Contact() {
                   <span>{isSubmitting ? "Sending..." : success ? "Message Sent!" : "Send Message"}</span>
                   {!isSubmitting && !success && <Send size={18} className="group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />}
                 </button>
-                
+
                 {success && (
                   <p className="text-[#00E5FF] text-center text-sm font-medium mt-4">
                     Thank you! I will get back to you shortly.

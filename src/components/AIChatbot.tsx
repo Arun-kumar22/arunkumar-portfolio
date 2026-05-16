@@ -13,15 +13,15 @@ export default function AIChatbot() {
 
   const handleSend = () => {
     if (!input.trim()) return;
-    
+
     setMessages([...messages, { role: "user", text: input }]);
     setInput("");
-    
+
     // Simulate AI response
     setTimeout(() => {
-      setMessages(prev => [...prev, { 
-        role: "bot", 
-        text: "I'm currently in 'Demo Mode'. Arunkumar specializes in Healthcare Tech, React, and Laravel. You can reach him at arunkumar@example.com!" 
+      setMessages(prev => [...prev, {
+        role: "bot",
+        text: "I'm currently in 'Demo Mode'. Arunkumar specializes in Healthcare Tech, React, and Laravel. You can reach him at arunganapathi20@gmail.com!"
       }]);
     }, 1000);
   };
@@ -58,11 +58,10 @@ export default function AIChatbot() {
             <div className="flex-grow p-6 overflow-y-auto space-y-4 scrollbar-hide">
               {messages.map((msg, i) => (
                 <div key={i} className={`flex ${msg.role === "user" ? "justify-end" : "justify-start"}`}>
-                  <div className={`max-w-[80%] p-4 rounded-2xl text-sm ${
-                    msg.role === "user" 
-                      ? "bg-[#00E5FF] text-[#060816] font-medium rounded-tr-none" 
+                  <div className={`max-w-[80%] p-4 rounded-2xl text-sm ${msg.role === "user"
+                      ? "bg-[#00E5FF] text-[#060816] font-medium rounded-tr-none"
                       : "bg-white/5 text-slate-300 rounded-tl-none border border-white/5"
-                  }`}>
+                    }`}>
                     {msg.text}
                   </div>
                 </div>

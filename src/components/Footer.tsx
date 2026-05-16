@@ -30,7 +30,7 @@ export default function Footer() {
             <a href="#" className="text-slate-500 hover:text-white transition-colors">
               <Globe size={20} />
             </a>
-            <a href="mailto:arunkumar@example.com" className="text-slate-500 hover:text-white transition-colors">
+            <a href="mailto:arunganapathi20@gmail.com" className="text-slate-500 hover:text-white transition-colors">
               <Mail size={20} />
             </a>
           </div>
@@ -39,7 +39,7 @@ export default function Footer() {
             &copy; {currentYear} Arunkumar. All Rights Reserved.
           </div>
         </div>
-        
+
         <div className="mt-12 text-center">
           <p className="text-[10px] text-slate-700 uppercase tracking-widest">
             Designed & Developed with Passion in Chennai
