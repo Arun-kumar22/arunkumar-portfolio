@@ -63,6 +63,11 @@ export default function RootLayout({
   return (
     <html lang="en">
       <head>
+        {/* Resource hints — reduce critical path latency */}
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="dns-prefetch" href="https://github.com" />
+        <link rel="dns-prefetch" href="https://linkedin.com" />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
@@ -70,7 +75,7 @@ export default function RootLayout({
               "@context": "https://schema.org",
               "@type": "Person",
               name: "Arunkumar",
-              url: "https://arunkumar.dev",
+              url: "https://bio-ivory-mu.vercel.app",
               jobTitle: "Full-Stack Developer",
               worksFor: {
                 "@type": "Organization",
@@ -96,6 +101,7 @@ export default function RootLayout({
           }}
         />
       </head>
+
       <body className={`${inter.variable} ${spaceGrotesk.variable} font-sans bg-[#060816]`}>
         {children}
         <Analytics />

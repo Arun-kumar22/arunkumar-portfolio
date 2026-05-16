@@ -1,27 +1,38 @@
 "use client";
 
 import { Canvas, useFrame } from "@react-three/fiber";
-import { Points, PointMaterial, Float, Sphere, MeshDistortMaterial, Sparkles } from "@react-three/drei";
+import { Points, PointMaterial } from "@react-three/drei";
 import * as random from "maath/random/dist/maath-random.esm";
 import { useRef, Suspense, useMemo } from "react";
 import * as THREE from "three";
 
-function ParticleGalaxy(props: any) {
+// Reduced from 9000 → 3000 particles to cut GPU/CPU load significantly
+function ParticleGalaxy(props: Record<string, unknown>) {
   const ref = useRef<THREE.Points>(null!);
-  const sphere = useMemo(() => random.inSphere(new Float32Array(9000), { radius: 2 }), []);
+  // 3000 particles = 1000 xyz triplets
+  const sphere = useMemo(
+    () => random.inSphere(new Float32Array(3000), { radius: 2 }),
+    []
+  );
 
-  useFrame((state, delta) => {
-    ref.current.rotation.x -= delta / 20;
-    ref.current.rotation.y -= delta / 30;
+  useFrame((_state, delta) => {
+    ref.current.rotation.x -= delta / 30;
+    ref.current.rotation.y -= delta / 40;
   });
 
   return (
     <group rotation={[0, 0, Math.PI / 4]}>
-      <Points ref={ref} positions={sphere as any} stride={3} frustumCulled {...props}>
+      <Points
+        ref={ref}
+        positions={sphere as Float32Array}
+        stride={3}
+        frustumCulled
+        {...props}
+      >
         <PointMaterial
           transparent
           color="#00E5FF"
-          size={0.003}
+          size={0.004}
           sizeAttenuation={true}
           depthWrite={false}
           blending={THREE.AdditiveBlending}
@@ -31,36 +42,24 @@ function ParticleGalaxy(props: any) {
   );
 }
 
-function GlowingCore() {
-  return (
-    <Float speed={2} rotationIntensity={0.5} floatIntensity={1}>
-      <Sphere args={[0.5, 32, 32]} scale={1.2}>
-        <MeshDistortMaterial
-          color="#7C3AED"
-          attach="material"
-          distort={0.4}
-          speed={1.5}
-          roughness={0.2}
-          metalness={0.8}
-          emissive="#7C3AED"
-          emissiveIntensity={0.5}
-        />
-      </Sphere>
-      <Sparkles count={50} scale={2} size={2} speed={0.4} opacity={0.2} color="#00E5FF" />
-    </Float>
-  );
-}
-
 export default function ThreeBackground() {
   return (
     <div className="absolute inset-0 -z-10 bg-[#060816]">
-      <Canvas camera={{ position: [0, 0, 2] }} dpr={[1, 1.5]} performance={{ min: 0.5 }}>
+      {/* dpr capped at 1 to avoid 2× rendering cost on retina screens */}
+      <Canvas
+        camera={{ position: [0, 0, 2] }}
+        dpr={1}
+        performance={{ min: 0.5 }}
+        gl={{ antialias: false, powerPreference: "low-power" }}
+      >
         <Suspense fallback={null}>
           <ParticleGalaxy />
-          <GlowingCore />
           <ambientLight intensity={0.2} />
-          <pointLight position={[10, 10, 10]} intensity={1.5} color="#00E5FF" />
-          <pointLight position={[-10, -10, -10]} intensity={1} color="#7C3AED" />
+          <pointLight
+            position={[10, 10, 10]}
+            intensity={1.5}
+            color="#00E5FF"
+          />
         </Suspense>
       </Canvas>
     </div>

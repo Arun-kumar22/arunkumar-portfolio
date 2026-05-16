@@ -1,8 +1,7 @@
 "use client";
 
-import { motion } from "framer-motion";
 import Link from "next/link";
-import { Globe, User, Mail, Layout } from "lucide-react";
+import { Globe, User, Mail } from "lucide-react";
 
 export default function Footer() {
   const currentYear = new Date().getFullYear();
@@ -21,17 +20,39 @@ export default function Footer() {
           </div>
 
           <div className="flex space-x-6">
-            <a href="#" className="text-slate-500 hover:text-white transition-colors">
-              <Globe size={20} />
+            <a
+              href="https://github.com/Arun-kumar22"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Visit Arunkumar's GitHub profile"
+              className="text-slate-500 hover:text-white transition-colors"
+            >
+              <Globe size={20} aria-hidden="true" />
             </a>
-            <a href="#" className="text-slate-500 hover:text-white transition-colors">
-              <User size={20} />
+            <a
+              href="https://linkedin.com/in/arunkumar"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Visit Arunkumar's LinkedIn profile"
+              className="text-slate-500 hover:text-white transition-colors"
+            >
+              <User size={20} aria-hidden="true" />
             </a>
-            <a href="#" className="text-slate-500 hover:text-white transition-colors">
-              <Globe size={20} />
+            <a
+              href="https://github.com/Arun-kumar22"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="View Arunkumar's GitHub repositories"
+              className="text-slate-500 hover:text-white transition-colors"
+            >
+              <Globe size={20} aria-hidden="true" />
             </a>
-            <a href="mailto:arunganapathi20@gmail.com" className="text-slate-500 hover:text-white transition-colors">
-              <Mail size={20} />
+            <a
+              href="mailto:arunganapathi20@gmail.com"
+              aria-label="Send email to Arunkumar at arunganapathi20@gmail.com"
+              className="text-slate-500 hover:text-white transition-colors"
+            >
+              <Mail size={20} aria-hidden="true" />
             </a>
           </div>
 
@@ -42,7 +63,7 @@ export default function Footer() {
 
         <div className="mt-12 text-center">
           <p className="text-[10px] text-slate-700 uppercase tracking-widest">
-            Designed & Developed with Passion in Chennai
+            Designed &amp; Developed with Passion in Chennai
           </p>
         </div>
       </div>

@@ -83,3 +83,20 @@
 ::-webkit-scrollbar-thumb {
   @apply bg-[#2563EB]/50 rounded-full hover:bg-[#00E5FF]/80 transition-colors;
 }
+
+/* Hero section fade-in via CSS (off main thread, no forced reflow) */
+@keyframes heroFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(16px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.hero-fade-in {
+  animation: heroFadeIn 0.7s ease forwards;
+  will-change: opacity, transform;
+}
